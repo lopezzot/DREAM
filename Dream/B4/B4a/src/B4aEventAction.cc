@@ -52,6 +52,7 @@ B4aEventAction::B4aEventAction()
    //NofScintillationDetected(0),
    EnergyTot(0.),
    PrimaryParticleEnergy(0.),
+   EscapedEnergy(0.),
    VectorSignals(0.),
    VectorSignalsCher(0.)
 {}
@@ -70,6 +71,7 @@ void B4aEventAction::BeginOfEventAction(const G4Event* /*event*/)
   EnergyScin = 0.;
   EnergyCher = 0.;
   NofCherenkovDetected = 0;
+  EscapedEnergy = 0;
   //NofScintillationDetected = 0;
   EnergyTot = 0;
   /*for(int i=0;i<64;i++){
@@ -117,6 +119,7 @@ void B4aEventAction::EndOfEventAction(const G4Event* event)
   analysisManager->FillNtupleDColumn(4, EnergyTot);
   analysisManager->FillNtupleDColumn(5, PrimaryParticleEnergy);
   analysisManager->FillNtupleSColumn(6, PrimaryParticleName);
+  analysisManager->FillNtupleDColumn(7, EscapedEnergy);
   analysisManager->AddNtupleRow();//columns with vector are automatically filled with this function
 
   //print here if you need event by event some information of the screen

@@ -80,6 +80,14 @@ void B4aSteppingAction::UserSteppingAction(const G4Step* step)
      fEventAction->Addenergy(energydeposited);
   }
 
+ if ( PreStepVolume->GetName() == "World" ){
+    if ( step->GetTrack()->GetTrackID() != 1 ){
+      // Function to add up energy escaped from calorimeter
+      fEventAction->AddEscapedEnergy(step->GetTrack()->GetKineticEnergy());
+      step->GetTrack()->SetTrackStatus(fStopAndKill);
+    }
+  }
+
   if ( PreStepVolume->GetName() != "World" ) {
     if (particlename == "e-" || particlename == "e+"){
       //Function to add up energy deposited by em component

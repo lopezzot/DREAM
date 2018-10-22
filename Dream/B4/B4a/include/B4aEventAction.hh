@@ -57,6 +57,7 @@ class B4aEventAction : public G4UserEventAction
     //void AddSignalfibre(G4int number);
     void SavePrimaryParticle(G4String name);
     void SavePrimaryEnergy(G4double primaryparticleenergy);
+    void AddEscapedEnergy(G4double escapedenergy);
 
     //to save vectors in ntuple
     std::vector<G4double>& GetVectorSignals() {return VectorSignals;} 
@@ -76,12 +77,18 @@ class B4aEventAction : public G4UserEventAction
     //G4double  Signalfibre[64];//Signal in 64 single module fibers, to be used with AddEnergyfibre
     G4String PrimaryParticleName; //Name of primary particle
     G4double PrimaryParticleEnergy;//Primary particle energy
+    G4double EscapedEnergy;
 
     std::vector<G4double> VectorSignals;//Vector filled with scintillating fibers energy deposits
     std::vector<G4double> VectorSignalsCher;//Vector filled with Cherenkov fibers Cherenkov photoelectrons
 };
 
 // inline functions
+
+inline void B4aEventAction::AddEscapedEnergy(G4double escapedenergy){
+  EscapedEnergy += escapedenergy;
+}
+
 inline void B4aEventAction::SavePrimaryParticle(G4String name){
   PrimaryParticleName = name;
 }
