@@ -75,6 +75,11 @@ void B4aSteppingAction::UserSteppingAction(const G4Step* step)
   //define Birk's constant
   double k_B = 0.126; 
 
+  if (PreStepVolume->GetName() == "module"){
+    //Function to save absorber material name
+    fEventAction->SaveAbsorberMaterial(PreStepVolume->GetLogicalVolume()->GetMaterial()->GetName());
+  }
+
   if ( PreStepVolume->GetName() != "World" ) {
      //Function to add up energy deposited in the whole calorimeter
      fEventAction->Addenergy(energydeposited);

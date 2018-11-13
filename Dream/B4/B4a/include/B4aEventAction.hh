@@ -56,6 +56,7 @@ class B4aEventAction : public G4UserEventAction
     //void AddEnergyfibre(G4double de, G4int number);//Add energy in copy number fiber
     //void AddSignalfibre(G4int number);
     void SavePrimaryParticle(G4String name);
+    void SaveAbsorberMaterial(G4String AbsorberMaterialName);
     void SavePrimaryEnergy(G4double primaryparticleenergy);
     void AddEscapedEnergy(G4double escapedenergy);
 
@@ -76,6 +77,7 @@ class B4aEventAction : public G4UserEventAction
     G4double  EnergyTot;//Total energy deposited (does not count invisibile energy)
     //G4double  Signalfibre[64];//Signal in 64 single module fibers, to be used with AddEnergyfibre
     G4String PrimaryParticleName; //Name of primary particle
+    G4String AbsorberMaterial; //Name of absorber material
     G4double PrimaryParticleEnergy;//Primary particle energy
     G4double EscapedEnergy;
 
@@ -91,6 +93,10 @@ inline void B4aEventAction::AddEscapedEnergy(G4double escapedenergy){
 
 inline void B4aEventAction::SavePrimaryParticle(G4String name){
   PrimaryParticleName = name;
+}
+
+inline void B4aEventAction::SaveAbsorberMaterial(G4String AbsorberMaterialName){
+  AbsorberMaterial = AbsorberMaterialName;
 }
 
 inline void B4aEventAction::SavePrimaryEnergy(G4double primaryparticleenergy){

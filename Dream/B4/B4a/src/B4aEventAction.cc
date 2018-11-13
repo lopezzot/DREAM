@@ -119,7 +119,8 @@ void B4aEventAction::EndOfEventAction(const G4Event* event)
   analysisManager->FillNtupleDColumn(4, EnergyTot);
   analysisManager->FillNtupleDColumn(5, PrimaryParticleEnergy);
   analysisManager->FillNtupleSColumn(6, PrimaryParticleName);
-  analysisManager->FillNtupleDColumn(7, EscapedEnergy);
+  analysisManager->FillNtupleSColumn(7, AbsorberMaterial);
+  analysisManager->FillNtupleDColumn(8, EscapedEnergy);
   analysisManager->AddNtupleRow();//columns with vector are automatically filled with this function
 
   //print here if you need event by event some information of the screen

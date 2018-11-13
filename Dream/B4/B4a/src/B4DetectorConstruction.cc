@@ -96,12 +96,23 @@ void B4DetectorConstruction::DefineMaterials()
   G4NistManager* CunistManager = G4NistManager::Instance();
   CunistManager->FindOrBuildMaterial("G4_Cu");
   
-  G4NistManager* FenistManager = G4NistManager::Instance();
-  FenistManager->FindOrBuildMaterial("G4_Fe");
+  //G4NistManager* FenistManager = G4NistManager::Instance();
+  //FenistManager->FindOrBuildMaterial("G4_Fe");
+
+  //G4NistManager* WnistManager = G4NistManager::Instance();
+  //WnistManager->FindOrBuildMaterial("G4_W");
 
   // Lead material defined using NIST Manager
   // G4NistManager* PbnistManager = G4NistManager::Instance();
   // PbnistManager->FindOrBuildMaterial("G4_Pb");
+
+  // Platinum material defined using NIST Manager
+  // G4NistManager* PtnistManager = G4NistManager::Instance();
+  // PtnistManager->FindOrBuildMaterial("G4_Pt");
+
+  // Alluminium material defined using NIST Manager
+  // G4NistManager* AlnistManager = G4NistManager::Instance();
+  // AlnistManager->FindOrBuildMaterial("G4_Al");
 
   // Polystyrene material defined using NIST Manager
   // I use this material for the core of plastic scintillating fibers
@@ -249,7 +260,7 @@ G4VPhysicalVolume* B4DetectorConstruction::DefineVolumes()
 
   // Get materials for vacuum, absorber, scintillating and cherenkov fibers, SiPM
   G4Material* defaultMaterial = G4Material::GetMaterial("G4_AIR"); // G4_AIR or G4_Galactic 
-  G4Material* absorberMaterial = G4Material::GetMaterial("G4_Fe"); // or Brass or G4_Cu or G4_Pb
+  G4Material* absorberMaterial = G4Material::GetMaterial("G4_Cu"); // or Brass or G4_Cu or G4_Pb
   G4Material* ScinMaterial = G4Material::GetMaterial("Polystyrene");
   G4Material* CherMaterial = G4Material::GetMaterial("PMMA");
   G4Material* GlassMaterial = G4Material::GetMaterial("Glass");
