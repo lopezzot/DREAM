@@ -86,7 +86,7 @@ void B4aSteppingAction::UserSteppingAction(const G4Step* step)
   }
 
  if ( PreStepVolume->GetName() == "World" ){
-    if ( step->GetTrack()->GetTrackID() >= 3 ){ //for pi0 decays
+    if ( step->GetTrack()->GetTrackID() >= 5 ){ //for pi0 decays
       // Function to add up energy escaped from calorimeter
       fEventAction->AddEscapedEnergy(step->GetTrack()->GetKineticEnergy());
       step->GetTrack()->SetTrackStatus(fStopAndKill);
